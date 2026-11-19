@@ -1,0 +1,23 @@
+---
+description: Бізнес-правило валідації форм «Контакти» і «Співпраця»
+globs: app/api/contact/**,app/api/collaboration/**,app/lib/utils/validateContactData.ts,app/constants/validation.ts,app/[lang]/contacts/**,app/[lang]/cooperation/**
+alwaysApply: false
+---
+
+# Валідація форм «Контакти» і «Співпраця»
+
+Обидві форми (`/contacts`, `/cooperation`) перевіряються однією функцією `validateContactData` з `app/lib/utils/validateContactData.ts`. Ліміти — в `app/constants/validation.ts`.
+
+| Поле | Обов'язкове | Правило |
+| --- | --- | --- |
+| `name` | так | рядок, 2–50 символів |
+| `email` | так | відповідає `regex.EMAIL_PATTERN` |
+| `phoneNumber` | ні | якщо задано: `+` і лише цифри, 11–16 символів |
+| `message` | так | рядок, 10–1000 символів |
+
+## Правила для змін
+
+- Не дублюй ліміти в коді — бери їх із `lengths` і `regex` у `app/constants/validation.ts`.
+- Клієнтська валідація форм має збігатися з серверною; змінюєш одну — онови іншу.
+- Обидва маршрути (`app/api/contact/route.ts`, `app/api/collaboration/route.ts`) лише валідують і повертають дані — нічого не зберігають і не надсилають. Не додавай збереження чи email без рішення з питання 2 у [`docs/question.md`](../../docs/question.md).
+- Тексти помилок — з `app/constants/errors.ts`.
