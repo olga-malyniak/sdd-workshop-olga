@@ -39,7 +39,7 @@ alwaysApply: false
 **Хто відповідає:** роль або людина, яка дає відповідь.
 ```
 
-Пункти розділяй `---`. Приклад — [`docs/question.md`](../../docs/question.md).
+Пункти розділяй `---`. Приклад — [`docs/questions.md`](../../docs/questions.md).
 
 ## Діаграми
 
