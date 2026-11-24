@@ -19,5 +19,5 @@ alwaysApply: false
 
 - Не дублюй ліміти в коді — бери їх із `lengths` і `regex` у `app/constants/validation.ts`.
 - Клієнтська валідація форм має збігатися з серверною; змінюєш одну — онови іншу.
-- Обидва маршрути (`app/api/contact/route.ts`, `app/api/collaboration/route.ts`) лише валідують і повертають дані — нічого не зберігають і не надсилають. Не додавай збереження чи email без рішення з питання 2 у [`docs/question.md`](../../docs/question.md).
+- Обидва маршрути (`app/api/contact/route.ts`, `app/api/collaboration/route.ts`) лише валідують і повертають дані — нічого не зберігають і не надсилають. Не додавай збереження чи email без рішення з питання 2 у [`docs/questions.md`](../../docs/questions.md).
 - Тексти помилок — з `app/constants/errors.ts`.
